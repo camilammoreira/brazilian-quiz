@@ -16,7 +16,17 @@ form.addEventListener("submit", e => {
         }
     });
 
-    // Display score
+    // Display score on page
+    scrollTo(0, 0);
     result.classList.remove("d-none");
-    resultScore.textContent = `${score}%`;
+
+    let i = 0;
+    const animate = setInterval((() => {
+        resultScore.textContent = `${i}%`;
+        i++;
+        if (i > score) {
+            clearInterval(animate);
+        }
+    }), 50);
+
 });
